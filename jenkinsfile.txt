@@ -18,7 +18,7 @@ pipeline{
                 git 'https://github.com/Saahiti-Korlam/Swiggy-project-Devops.git'
             }
         }
-        stage("Sonarqube Analysis "){
+        stage('Sonarqube Check'){
             steps{
                 withSonarQubeEnv('sonar-server') {
                     sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Swiggy \
@@ -26,7 +26,7 @@ pipeline{
                 }
             }
         }
-        stage("quality gate"){
+        stage('quality gate'){
            steps {
                 script {
                     waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token' 
@@ -49,7 +49,7 @@ pipeline{
                 sh "trivy fs . > trivyfs.txt"
             }
         }
-        stage("Docker Build & Push"){
+        stage('Docker Build and Push'){
             steps{
                 script{
                    withDockerRegistry(credentialsId: 'dockerhub_cred', toolName: 'docker'){   
@@ -60,7 +60,7 @@ pipeline{
                 }
             }
         }
-        stage("TRIVY"){
+        stage('TRIVY'){
             steps{
                 sh "trivy image sahichoco123/swiggy:latest > trivy.txt" 
             }
