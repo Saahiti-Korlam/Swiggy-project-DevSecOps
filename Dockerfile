@@ -1,5 +1,5 @@
-# Using Node.js 16 as the base image
-FROM node:16
+# Using Node.js 18 as the base image
+FROM node:18-bookworm
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y libatomic1
