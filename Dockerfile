@@ -1,11 +1,11 @@
 # Using Node.js 16 as the base image
 FROM node:16
 
-# Setting up the working directory
-WORKDIR /app
-
 # Install system dependencies
 RUN apt-get update && apt-get install -y libatomic1
+
+# Setting up the working directory
+WORKDIR /app
 
 # Copying the package.json and package-lock.json files to the working directory
 COPY package*.json ./
