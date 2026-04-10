@@ -589,8 +589,6 @@ The Jenkins pipeline runs 9 stages end-to-end. The source code and file system a
 ## Phase 11 – Access the Application
 
 > Once the pipeline completes successfully, the application is live inside a Docker container.
-<img width="1920" height="1080" alt="SWiggy-output" src="https://github.com/user-attachments/assets/1160e715-8150-441b-8f12-c8a32a18a2ae" />
-
 
 ### Verify the running container
 
@@ -603,6 +601,8 @@ docker ps
 ```
 http://<ec2-public-ip>:3000
 ```
+<img width="1672" height="1080" alt="SWiggy-output" src="https://github.com/user-attachments/assets/ea020b28-53dd-4249-9ac2-4ffed5c4ec5f" />
+
 
 ### View Trivy Scan Reports
 
